@@ -42,8 +42,9 @@
 				for(var h of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]){
 					let hour = new Date(refdate.setHours(h, 0, 0))
 					hour = toISO(hour)
-					if (hour == d[didx][0]){
+					if (d.length > didx && hour == d[didx][0]){
 						cpldata.push([h, d[didx][1]])
+						didx += 1
 					}else{
 						cpldata.push([h, 0])
 					}
@@ -54,8 +55,9 @@
 				for(var day_offset of [0,1,2,3,4,5,6]){		
 					
 					let hour = toISO(addDays(refdate, day_offset))
-					if (hour == d[didx][0]){
+					if (d.length > didx && hour == d[didx][0]){
 						cpldata.push([daydic[day_offset], d[didx][1]])
+						didx += 1
 					}else{
 						cpldata.push([daydic[day_offset], 0])
 					}
@@ -69,8 +71,9 @@
 						break;
 					}
 					hour = toISO(hour)
-					if (hour == d[didx][0]){
+					if (d.length > didx && hour == d[didx][0]){
 						cpldata.push([day_offset+1, d[didx][1]])
+						didx += 1
 					}else{
 						cpldata.push([day_offset+1, 0])
 					}

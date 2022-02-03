@@ -19,9 +19,6 @@ where
 group by 1
 '''
 
-tablename='d_35478F91'
-min_t='2022-01-01'
-max_t='2022-02-02'
 
 def devices():
     con = sqlite3.connect('data.sqlite')
@@ -60,5 +57,8 @@ def days_in_month(tablename, day_in_month):
 
 
 if __name__ == '__main__':
-    print( hours_in_day(tablename, datetime.now()-timedelta(1)))
-    print( days_in_week(tablename, datetime.now()))
+
+    tablename='d_35478F91'
+
+    print( hours_in_day(tablename, (datetime.now()-timedelta(1)).isoformat()+'Z'))
+    print( days_in_week(tablename, datetime.now().isoformat()+'Z'))
